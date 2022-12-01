@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod a+x * 11-directories_permissions
+chmod a+x dir0 dir1 dir2
