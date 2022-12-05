@@ -1,2 +1,2 @@
 #!/bin/bash
-ls 0x02-shell_redirections/ -Artls | tail -10
+ls -Art | tail -n 10 | sort
