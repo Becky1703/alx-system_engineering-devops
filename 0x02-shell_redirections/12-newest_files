@@ -1,2 +1,2 @@
 #!/bin/bash
-ls 0x02-shell_redirections/ -Artls | tail -l
+ls 0x02-shell_redirections/ -Artls | tail -10
