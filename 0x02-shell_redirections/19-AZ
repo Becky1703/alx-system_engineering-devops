@@ -1,0 +1,2 @@
+#!/bin/bash
+echo ${STR//A/Z} ${STR//c/e} Replace_string
