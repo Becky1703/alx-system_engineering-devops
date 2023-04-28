@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays lines containing the bash word without using pgrep
+
+ps -aux | grep bash
