@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Stops the process of the bash script "4-to_Infinity_and_beyond" without
+#+ using kill and killall
+
+pkill -f 4-to_infinity_and_beyond
+
+
