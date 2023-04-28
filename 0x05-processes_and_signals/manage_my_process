@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Bash Script taht indefinitely writes "I am alive!" to the file /tmp/my_process
+#+ and pauses for 2 seconds in between
+
+while true
+
+do
+
+  echo "I am alive!" >> /tmp/my_process
+
+  sleep 2
+
+done
