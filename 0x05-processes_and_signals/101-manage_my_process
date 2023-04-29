@@ -47,7 +47,7 @@ then
 
     rm /var/run/my_process.pid
 
-    ./manage_my_process.pid &
+    ./manage_my_process &
 
     touch /var/run/my_process.pid
 
