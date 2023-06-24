@@ -1,14 +1,17 @@
 # Seting up my client config file
 
+include stdlib
 
-file { '/root/.ssh/config':
+file_line { 'Turn off passwd auth':
   ensure => present,
-  mode   => '0600',
-  owner  => 'root',
-  group  => 'root',
-  content => @(EOF)
-    Host ubuntu
-      IdentityFile ~/.ssh/school
-      PasswordAuthentication no
-    EOF
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
+  replace => true,
+}
+
+file_line { 'Declare identity file':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
