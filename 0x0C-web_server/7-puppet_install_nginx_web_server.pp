@@ -8,8 +8,8 @@ package { 'nginx':
 #Configuration for Nginx server
 file { '/etc/nginx/sites-available/default':
   ensure  => file,
-  owner   => 'ubuntu',
-  group   => 'ubuntu',
+  owner   => 'root',
+  group   => 'root',
   mode    => '0644',
   content => "
     server {
