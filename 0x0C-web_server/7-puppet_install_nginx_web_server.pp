@@ -1,4 +1,4 @@
-#Installs and configures nginx using puppet
+#Installs and configures nginx on Ubuntu using puppet
 
 #installs Nginx package
 package { 'nginx':
