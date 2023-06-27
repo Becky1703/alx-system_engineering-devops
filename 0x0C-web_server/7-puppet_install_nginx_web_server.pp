@@ -6,15 +6,12 @@ package { 'nginx':
 }
 
 #Configuration for Nginx server
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => "
+file { '/etc/nginx/sites-enabled/default':
+  ensure  => present,
+  content => @(EOF),
     server {
       listen 80;
-      ubuntu /var/www/html;
+      root /var/www/html;
       
       location / {
         return 200 'Hello World!':
@@ -24,12 +21,12 @@ file { '/etc/nginx/sites-available/default':
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4/;
       }
     }
-  ",
+ EOF
 }
 
 #To restart Nginx service after configuration
 service { 'nginx':
   ensure  => running,
   enable  => true,
-  require => File['/etc/nginx/sites-available/default'],
+  subscribe => File['/etc/nginx/sites-enabled/default'],
 }
