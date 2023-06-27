@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Installs Nginx on web-01 server and returns a page containing Hello World
+#+ when GET request is used to request for the page
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo service nginx start

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Configures Nginx on web-01 server and displays a 301 redirection error message
+#+ when GET request is used to request for the page
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo sed -i '/server_name _;/a \location /redirect_me/ {\n return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}' /etc/nginx/sites-available/default
+sudo service nginx restart
