@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Debugging web stack
-echo "ServerName localhost" >> /etc/apache2.conf
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
 sudo service apache2 start
