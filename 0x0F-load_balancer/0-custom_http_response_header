@@ -3,5 +3,5 @@
 
 sudo apt -y update
 sudo apt -y install nginx
-sudo sed -i "15i \\\tadd_header X-Served-By 216178-web-01;" /etc/nginx/nginx.conf
+sudo sed -i "15i \\\tadd_header X-Served-By 216178-web-02;" /etc/nginx/nginx.conf
 sudo service nginx restart
