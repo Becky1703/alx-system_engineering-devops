@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Configures a new Nginx server and handles errors
+#Configures a new Nginx server withacustom header and handles errors 
 
 sudo apt -y update
 sudo apt -y install nginx
