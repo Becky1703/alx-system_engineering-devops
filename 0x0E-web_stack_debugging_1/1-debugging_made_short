@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Reconfigures nginx to stop working but continue listening on port 80
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx start
+kill "$(pgrep 'nginx' | head -1)"
