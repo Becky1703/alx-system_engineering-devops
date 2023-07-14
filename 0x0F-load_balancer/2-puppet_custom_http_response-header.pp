@@ -1,20 +1,23 @@
 #puppet file to configure custom hhtp response on a brand new Ubuntu
 
-exec { 'apt-update':
-  command => '/usr/bin/apt-get update'
+exec { 'update':
+  command  => 'sudo apt-get update',
+  provider => shell
 }
 
-package { 'nginx':
-  ensure => 'installed',
-  name   => 'nginx',
+-> package {'nginx':
+  ensure => present,
 }
 
-file_line { 'append a line in nginx config file':
-  path   => '/etc/nginx/nginx.conf',
-  line   => "\tadd_header X-Served-By $(hostname);",
-  after  => 'http {',
+-> file_line { 'header line':
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "   location / {
+  add_header X-Served-By $(hostname);",
+  match  => '^\tlocation / {',
 }
 
-exec { 'sudo service nginx restart':
-  command => '/usr/sbin/service nginx restart',
+-> exec { 'restart service':
+  command => 'sudo service nginx restart',
+  provider => shell,
 }
