@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 #Installs and sets up HAproxy Load Balancer to balance load on server
 
-apt-get -y install --no-install-recommends software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.0
-apt-get -y install haproxy=2.0.\*
+sudo apt -y update
+sudo apt install -y haproxy
 sudo chmod 777 /etc/haproxy/haproxy.cfg
 echo "frontend http
         bind *:80
         mode http
+        timeout client 5000
         default_backend web-backend
     backend web-backend
         balance roundrobin
+        mode http
         server 216178-web-01 100.25.118.189:80 check
         server 216178-web-02 34.234.204.223:80 check
+        timeout connect 5000
+        timeout server 10000
+
 " >> /etc/haproxy/haproxy.cfg
 sudo chmod 644 /etc/haproxy/haproxy.cfg
 
