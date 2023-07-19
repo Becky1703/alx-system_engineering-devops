@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Runs the command whoami and passes the user as an argument.
-id -un "$1"
+sudo -u "$1" whoami
+
