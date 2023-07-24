@@ -6,6 +6,7 @@ import sys
 
 
 if __name__ == "__main__":
+    """script exports data to JSON format"""
     user_id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/"
     user = requests.get(url + "users/{}".format(user_id)).json()
