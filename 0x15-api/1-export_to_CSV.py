@@ -14,7 +14,6 @@ def export_to_csv():
             break
     TASK_STATUS_TITLE = []
 
-
     todos = requests.get("http://jsonplaceholder.typicode.com/todos")
     for task in todos.json():
         if task.get('userId') == int(argv[1]):
