@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #Script gracefully restarts gunicorn app
-kill -HUP `ps -C gunicorn fch -o pid | head -n 1`
+PID=$(pgrep gunicorn | head -n 1)
+kill -HUP "$PID"
